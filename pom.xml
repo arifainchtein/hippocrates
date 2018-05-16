@@ -57,7 +57,7 @@
 <dependency>
     <groupId>com.teleonome</groupId>
     <artifactId>framework</artifactId>
-    <version>1.0.0</version>
+    <version>1</version>
 </dependency>
   </dependencies>
    <repositories>
@@ -145,50 +145,6 @@
         </replacements>
     </configuration>
 </plugin>
-<!-- =========================================== -->
-    <!-- make sure antrun is after packaging plugins -->
-    <!-- =========================================== -->
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-antrun-plugin</artifactId>
-      <version>1.8</version>
-      <executions>
-        <execution>
-          <id>scp-to-remote</id>
-          <phase>package</phase>
-          <goals>
-            <goal>run</goal>
-          </goals>
-          <configuration>
-            <target>
-              <!-- keyfile+passphrase or  password, choose one -->
-              <scp localFile="${project.basedir}/target/Hippocrates.jar"
-                remoteToFile="pi@${teleonome.name}.local:/home/pi/Teleonome/Hippocrates.jar" verbose="true"
-                keyfile="/Users/arifainchtein/.ssh/chilhuacle"
-                passphrase="">
-              </scp>
-            </target>
-          </configuration>
-        </execution>
-      </executions>
-      <!-- libraries for scp impl      -->
-      <!-- antrun doesn't use os's scp -->
-      <dependencies>
-        <dependency>
-          <groupId>com.jcraft</groupId>
-          <artifactId>jsch</artifactId>
-          <version>0.1.53</version>
-        </dependency>
-        <dependency>
-          <groupId>ant</groupId>
-          <artifactId>ant-jsch</artifactId>
-          <version>1.6.5</version>
-        </dependency>
-      </dependencies>
-    </plugin>
-    <!-- =========================================== -->
-    <!--   antrun plugin end                         -->
-    <!-- =========================================== -->
 </plugins>
 </build>
 </project>
