@@ -58,7 +58,7 @@ public class HippocratesSocketServer {
 	Hashtable otherTeleonomeNameMessageIndex = new Hashtable();
 	
 	//static Category cat = Category.getInstance(DiagnosticSocketServer.class.getName());
-	 private String buildNumber="27/04/2018 19:09";
+	 private String buildNumber="14/05/2018 08:27";
 	static int port=4712;
 	SimpleDateFormat timeOnlyFormat = new SimpleDateFormat("HH:mm:ss");
 	
